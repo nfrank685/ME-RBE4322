@@ -446,7 +446,7 @@ for k = 1:nPos
     S5 = (F_new+G)/2;
 
   
-    %static equilibrium
+    %Static equilibrium
 
     % Sum of forces = 0 and sum of moments = 0 for each moving link.
    
@@ -480,9 +480,9 @@ for k = 1:nPos
     staticForce(k,7,1:2) = xStatic(13:14);
     staticTorque(k) = xStatic(15);
 
-    % DYNAMIC EQUILIBRIUM / NEWTON'S SECOND LAW
 
-  
+    % Dynamic Equilibrium
+    
     eqnD1 = DForceA + DForceB + WAB == MassAB*aS1_k;
     eqnD2 = cross(A-S1,DForceA) + cross(B_new-S1,DForceB) + DInputTorque == J_AB*alpha_AB;
 
@@ -766,5 +766,3 @@ xlabel('Input angle [deg]');
 ylabel('Acceleration magnitude [m/s^2]');
 title('Mass-Center Acceleration Magnitudes');
 legend('AB','BC','DE','EF','FG','Location','best');
-
-fprintf('\nAnalysis complete. All 360 positions were processed.\n');
